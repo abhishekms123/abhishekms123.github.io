@@ -84,7 +84,11 @@
     }
 
     .hero::before { top: 22%; left: 10%; }
-    .hero::after { bottom: 19%; right: 11%; animation-delay: 1.2s; }
+    .hero::after {
+      bottom: 19%;
+      right: 11%;
+      animation-delay: 1.2s;
+    }
 
     @keyframes twinkle {
       50% { opacity: .35; transform: scale(.8) rotate(25deg); }
@@ -149,7 +153,6 @@
       cursor: zoom-in;
     }
 
-    /* Placeholders are hidden until JavaScript detects a failed image. */
     .photo-placeholder {
       position: absolute;
       inset: 0;
@@ -380,7 +383,11 @@
       margin: 0 0 14px;
     }
 
-    .closing p { color: #74505e; max-width: 620px; margin: 0 auto; }
+    .closing p {
+      color: #74505e;
+      max-width: 620px;
+      margin: 0 auto;
+    }
 
     footer {
       text-align: center;
@@ -420,11 +427,41 @@
       cursor: pointer;
     }
 
+    /* Background music hint */
+    #music-hint {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 30;
+      padding: 11px 16px;
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      background: var(--rose-dark);
+      color: white;
+      font-size: 13px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
+      cursor: pointer;
+      transition: opacity .3s ease;
+    }
+
+    #music-hint.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     @media (max-width: 760px) {
       .site-nav { padding: 16px 20px; }
       .nav-links { display: none; }
-      .hero { min-height: auto; padding-top: 100px; padding-bottom: 66px; }
-      .memory-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+      .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 66px;
+      }
+      .memory-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 14px;
+      }
       .memory-photo { height: 210px; }
       .memory-caption { padding: 15px; }
       .memory-caption h3 { font-size: 1.15rem; }
@@ -440,7 +477,10 @@
       .count-box { min-width: 58px; }
       .count-box strong { font-size: 1.25rem; }
       .btn { width: 100%; max-width: 320px; }
-      .button-row { align-items: center; flex-direction: column; }
+      .button-row {
+        align-items: center;
+        flex-direction: column;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -454,6 +494,17 @@
 </head>
 
 <body>
+  <!-- Background music -->
+  <audio id="birthday-music" autoplay loop preload="auto">
+    <source src="./assets/music.mp3" type="audio/mpeg">
+    Your browser does not support audio playback.
+  </audio>
+
+  <!-- Shown if the browser blocks autoplay -->
+  <div id="music-hint" role="status">
+    ♫ Tap anywhere to play music
+  </div>
+
   <nav class="site-nav" aria-label="Main navigation">
     <a class="brand" href="#home">Elzu's First Birthday</a>
     <div class="nav-links">
@@ -526,51 +577,94 @@
           <article class="memory-card">
             <div class="memory-photo">
               <img src="./assets/memory-01.jpeg" alt="Elzu as a newborn">
-              <div class="photo-placeholder"><span class="emoji">🍼</span><strong>Our first hello</strong><small>Expected file: memory-01.jpg</small></div>
+              <div class="photo-placeholder">
+                <span class="emoji">🍼</span>
+                <strong>Our first hello</strong>
+                <small>Expected file: memory-01.jpeg</small>
+              </div>
             </div>
-            <div class="memory-caption"><h3>Our First Hello</h3><p>The day our hearts found a whole new meaning.</p></div>
+            <div class="memory-caption">
+              <h3>Our First Hello</h3>
+              <p>The day our hearts found a whole new meaning.</p>
+            </div>
           </article>
 
           <article class="memory-card">
             <div class="memory-photo">
               <img src="./assets/memory-02.jpeg" alt="Elzu's first smile">
-              <div class="photo-placeholder"><span class="emoji">😊</span><strong>That little smile</strong><small>Expected file: memory-02.jpg</small></div>
+              <div class="photo-placeholder">
+                <span class="emoji">😊</span>
+                <strong>That little smile</strong>
+                <small>Expected file: memory-02.jpeg</small>
+              </div>
             </div>
-            <div class="memory-caption"><h3>That Little Smile</h3><p>Our favourite reason to smile right back.</p></div>
+            <div class="memory-caption">
+              <h3>That Little Smile</h3>
+              <p>Our favourite reason to smile right back.</p>
+            </div>
           </article>
 
           <article class="memory-card">
             <div class="memory-photo">
               <img src="./assets/memory-03.jpeg" alt="Elzu playing">
-              <div class="photo-placeholder"><span class="emoji">🧸</span><strong>Playtime magic</strong><small>Expected file: memory-03.jpg</small></div>
+              <div class="photo-placeholder">
+                <span class="emoji">🧸</span>
+                <strong>Playtime magic</strong>
+                <small>Expected file: memory-03.jpeg</small>
+              </div>
             </div>
-            <div class="memory-caption"><h3>Little Explorer</h3><p>Every day brought a new thing to discover.</p></div>
+            <div class="memory-caption">
+              <h3>Little Explorer</h3>
+              <p>Every day brought a new thing to discover.</p>
+            </div>
           </article>
 
           <article class="memory-card">
             <div class="memory-photo">
               <img src="./assets/memory-04.jpeg" alt="Elzu laughing">
-              <div class="photo-placeholder"><span class="emoji">🌸</span><strong>Giggles &amp; joy</strong><small>Expected file: memory-04.jpg</small></div>
+              <div class="photo-placeholder">
+                <span class="emoji">🌸</span>
+                <strong>Giggles &amp; joy</strong>
+                <small>Expected file: memory-04.jpeg</small>
+              </div>
             </div>
-            <div class="memory-caption"><h3>Giggles &amp; Joy</h3><p>The sweetest sound in our little home.</p></div>
+            <div class="memory-caption">
+              <h3>Giggles &amp; Joy</h3>
+              <p>The sweetest sound in our little home.</p>
+            </div>
           </article>
 
           <article class="memory-card">
             <div class="memory-photo">
               <img src="./assets/memory-05.jpeg" alt="Elzu with her family">
-              <div class="photo-placeholder"><span class="emoji">🤍</span><strong>My favourite people</strong><small>Expected file: memory-05.jpg</small></div>
+              <div class="photo-placeholder">
+                <span class="emoji">🤍</span>
+                <strong>My favourite people</strong>
+                <small>Expected file: memory-05.jpeg</small>
+              </div>
             </div>
-            <div class="memory-caption"><h3>My Favourite People</h3><p>Safe arms, warm hugs and endless love.</p></div>
+            <div class="memory-caption">
+              <h3>My Favourite People</h3>
+              <p>Safe arms, warm hugs and endless love.</p>
+            </div>
           </article>
 
           <article class="memory-card">
             <div class="memory-photo">
               <img src="./assets/memory-06.jpeg" alt="Elzu's recent photo">
-              <div class="photo-placeholder"><span class="emoji">🎂</span><strong>Almost one!</strong><small>Expected file: memory-06.jpg</small></div>
+              <div class="photo-placeholder">
+                <span class="emoji">🎂</span>
+                <strong>Almost one!</strong>
+                <small>Expected file: memory-06.jpeg</small>
+              </div>
             </div>
-            <div class="memory-caption"><h3>Almost One!</h3><p>How did our tiny baby grow so quickly?</p></div>
+            <div class="memory-caption">
+              <h3>Almost One!</h3>
+              <p>How did our tiny baby grow so quickly?</p>
+            </div>
           </article>
-        
+        </div>
+      </div>
     </section>
 
     <section class="section details" id="details">
@@ -624,14 +718,47 @@
   </div>
 
   <script>
+    // Background music: attempt autoplay when the page opens.
+    const birthdayMusic = document.getElementById("birthday-music");
+    const musicHint = document.getElementById("music-hint");
+    let musicStarted = false;
+
+    async function startBirthdayMusic() {
+      if (musicStarted) return;
+
+      try {
+        await birthdayMusic.play();
+        musicStarted = true;
+        musicHint.classList.add("hidden");
+
+        document.removeEventListener("pointerdown", startBirthdayMusic);
+        document.removeEventListener("keydown", startBirthdayMusic);
+      } catch (error) {
+        // The browser may block autoplay until the visitor interacts.
+        musicHint.classList.remove("hidden");
+      }
+    }
+
+    // A tap anywhere on the page can start the music if autoplay was blocked.
+    document.addEventListener("pointerdown", startBirthdayMusic);
+    document.addEventListener("keydown", startBirthdayMusic);
+
+    // Also allow tapping the hint itself.
+    musicHint.addEventListener("click", startBirthdayMusic);
+
+    // Try autoplay immediately.
+    startBirthdayMusic();
+
     // Countdown to 6:00 PM India Standard Time on 12 November 2026.
     const eventDate = new Date("2026-11-12T18:00:00+05:30").getTime();
+
     const fields = {
       days: document.getElementById("days"),
       hours: document.getElementById("hours"),
       minutes: document.getElementById("minutes"),
       seconds: document.getElementById("seconds")
     };
+
     const countdown = document.querySelector(".countdown");
     let countdownTimer;
 
@@ -639,8 +766,12 @@
       const distance = eventDate - Date.now();
 
       if (distance <= 0) {
-        Object.values(fields).forEach(el => { el.textContent = "0"; });
+        Object.values(fields).forEach(el => {
+          el.textContent = "0";
+        });
+
         countdown.setAttribute("aria-label", "The celebration day is here");
+
         if (countdownTimer) clearInterval(countdownTimer);
         return;
       }
@@ -673,11 +804,16 @@
         "END:VCALENDAR"
       ].join("\r\n") + "\r\n";
 
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const blob = new Blob([ics], {
+        type: "text/calendar;charset=utf-8"
+      });
+
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
+
       link.href = url;
       link.download = "elzu-first-birthday.ics";
+
       document.body.appendChild(link);
       link.click();
       link.remove();
