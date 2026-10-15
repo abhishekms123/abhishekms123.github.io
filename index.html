@@ -174,8 +174,17 @@
         <p class="hero-subtitle">One whole year of love, laughter & little adventures</p>
 
         <div class="hero-photo">
-          <img src="assets/elzu-hero.jpg" alt="Elzu, our birthday girl" onerror="this.style.display='none'">
-          <div class="photo-placeholder"><span class="emoji">🎀</span><strong>Add Elzu's favourite photo</strong><small>Replace assets/elzu-hero.jpg</small></div>
+          <img 
+            src="./assets/elzu-hero.jpg"
+            alt="Elzu, our birthday girl"
+            onload="this.nextElementSibling.style.display='none'"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid'"
+          >
+          <div class="photo-placeholder" style="display:none;">
+               <span class="emoji">🎀</span>
+               <strong>Add Elzu's favourite photo</strong>
+               <small>Replace assets/elzu-hero.jpg</small>
+          </div>
         </div>
 
         <p class="hero-date">Thursday, 12 November 2026 · 6:00 PM</p>
